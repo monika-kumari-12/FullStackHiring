@@ -19,9 +19,10 @@
         <h4><a><%= company.name %></a></h4>
         <p><%= company.description %></p>
         <p>
-          <em>Submitted by: <a href="/users/<%= company.author.id %>"><%= company.author.username %></a>, <%= moment(company.createdAt).fromNow() %></em>
+          <em>Submitted by: <%= company.author.username%> <%= moment(company.createdAt).fromNow() %></em>
         </p>
         <% if(currentUser && company.author.id.equals(currentUser._id) || currentUser && currentUser.isAdmin){ %>
+          <em>Submitted by: <a href="/users/<%= company.author.id %>"><%= company.author.username %></a></em>
         <a class="btn btn-warning" href="/companies/<%= company._id %>/edit">Edit</a>
         <form action="/companies/<%= company._id %>?_method=DELETE" method="POST" class="delete-form">
           <button class="btn btn-danger">Delete</button>

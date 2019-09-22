@@ -1,0 +1,55 @@
+<% include ../partials/header %>
+
+<div class="container">
+	<header class="jumbotron">
+		<div class="container">
+			<h1>Welcome To INKREDO</h1>
+			<p>
+				One stop solution to track employment history of all the companies all
+				over the world
+			</p>
+			<p>
+				<a class="btn btn-primary btn-large" href="/companies/new"
+					>Add New Company</a
+				>
+			</p>
+		</div>
+	</header>
+
+	<div class="row text-center" style="display:flex; flex-wrap: wrap;">
+		<% companies.forEach(function(company){ %>
+		<div class="col-md-3 col-sm-6">
+			<div class="thumbnail">
+				<img src="<%= company.image %>" />
+				<div class="caption">
+					<h4><%= company.name %></h4>
+					<% if (company.reviews.length === 0) { %>
+					<em>No reviews yet.</em>
+					<% } else { %>
+					<span class="fa fa-star checked"></span>
+					<span
+						class="fa fa-star <% if (company.rating > 1) { %> checked <% } %>"
+					></span>
+					<span
+						class="fa fa-star <% if (company.rating > 2) { %> checked <% } %>"
+					></span>
+					<span
+						class="fa fa-star <% if (company.rating > 3) { %> checked <% } %>"
+					></span>
+					<span
+						class="fa fa-star <% if (company.rating > 4) { %> checked <% } %>"
+					></span>
+					<% } %>
+				</div>
+				<p>
+					<a href="/companies/<%= company._id %>" class="btn btn-primary"
+						>More Info</a
+					>
+				</p>
+			</div>
+		</div>
+		<% }); %>
+	</div>
+</div>
+
+<% include ../partials/footer %>

@@ -1,0 +1,64 @@
+<% include ../partials/header %>
+
+<div class="row">
+	<h1 style="text-align: center">Create a New company</h1>
+	<div style="width: 30%; margin: 25px auto;">
+		<form action="/companies" method="POST">
+			<div class="form-group">
+				<input
+					class="form-control"
+					type="text"
+					name="name"
+					placeholder="name"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<input
+					class="form-control"
+					type="number"
+					name="cost"
+					placeholder="cost"
+					step="1"
+					min="0"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<input
+					class="form-control"
+					type="text"
+					name="location"
+					id="location"
+					placeholder="The location"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<input
+					class="form-control"
+					type="text"
+					name="image"
+					placeholder="image url"
+					required
+				/>
+			</div>
+
+			<div class="form-group">
+				<input
+					class="form-control"
+					type="text"
+					name="description"
+					placeholder="description"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<button class="btn btn-lg btn-primary btn-block">Submit!</button>
+			</div>
+		</form>
+		<a href="/companies">Go Back</a>
+	</div>
+</div>
+
+<% include ../partials/footer %>
